@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verifying Access – GP Soldier Academy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #0f172a;
+      color: #f1f5f9;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      background: #1e293b;
+      border-radius: 20px;
+      padding: 40px 28px;
+      width: 100%;
+      max-width: 420px;
+      border: 1px solid #334155;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+    .logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #f59e0b;
+      margin-bottom: 24px;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 1.9rem;
+      color: #fbbf24;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+    .subtitle {
+      color: #cbd5e1;
+      margin-bottom: 32px;
+      font-size: 1.05rem;
+    }
+    .form-group {
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    label {
+      display: block;
+      color: #94a3b8;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 2px solid #334155;
+      background: #0f172a;
+      color: white;
+      font-size: 1.05rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    input[type="email"]:focus {
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border-radius: 14px;
+      background: linear-gradient(to right, #f59e0b, #fbbf24);
+      color: #0f172a;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(245, 158, 11, 0.5);
+    }
+    .btn:disabled {
+      background: #475569;
+      color: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .loader {
+      width: 48px;
+      height: 48px;
+      border: 5px solid #334155;
+      border-top: 5px solid #f59e0b;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 30px auto;
+      display: none;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .message {
+      margin-top: 28px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      display: none;
+    }
+    .error {
+      color: #f87171;
+    }
+    .success {
+      color: #34d399;
+    }
+    .contact-info {
+      margin-top: 20px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .contact-info strong {
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="gplogo-192.png" alt="GP Soldier Academy" class="logo" />
+    <h1>Verification Required</h1>
+    <p class="subtitle">Enter your Gmail to continue</p>
+
+    <div class="form-group">
+      <label for="email">Your Gmail Address</label>
+      <input type="email" id="email" placeholder="example@gmail.com" required />
+    </div>
+
+    <button id="submitBtn" class="btn">Verify & Continue</button>
+
+    <div class="loader" id="loader"></div>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    // List of allowed / registered gmails (from the photos you sent)
+    const allowedEmails = [
+      "arjublonl413@gmail.com",
+      "pr4813611@gmail.com",
+      "rathodvishal5411@gmail.com",
+      "Prajwalsidaraddi4@gmail.com",
+      "sureshkumbar239@gmail.com",
+      "basavarajbabaladi6@gmail.com",
+      "Sureshkumbar14997@gmail.com",
+      "upparpreetam07@gmail.com",
+      "jamagondsantosj@gmail.com",
+      "shekhargurav073@gmail.com",
+      "vijaykumarkattimani2006@gmail.com",
+      "Vittaleginahal2007@gmail.com",
+      "bandisriniwasgbandiwdadar@gmail.com",
+      "vijayayachanura@gmail.com",
+      "shivarajsanakki46@gmail.com",
+      "baragibasavaraj40@gmail.com",
+      "akashsalunke2007@gmail.com",
+      "jogimahadev42@gmail.com",
+      "malappaindi2004@gmail.com",
+      "sidduwagarli@gmail.com",
+      "shrishrinivas457@gmail.com",
+      "rathodanjeet208@gmail.com",
+      "tirutirupathi32@gmail.com",
+      "vijaykumarkattimani58@gmail.com",
+      "anjumanjunayak123456@gmail.com",
+      "rajeshfivishnu@gmail.com"
+    ].map(email => email.toLowerCase());  // case-insensitive comparison
+
+    const submitBtn = document.getElementById('submitBtn');
+    const emailInput = document.getElementById('email');
+    const loader = document.getElementById('loader');
+    const messageDiv = document.getElementById('message');
+
+    submitBtn.addEventListener('click', () => {
+      const email = emailInput.value.trim().toLowerCase();
+
+      // Basic validation
+      if (!email || !email.endsWith('@gmail.com')) {
+        showMessage("Please enter a valid Gmail address.", "error");
+        return;
+      }
+
+      // Show loading
+      submitBtn.disabled = true;
+      loader.style.display = 'block';
+      messageDiv.style.display = 'none';
+
+      // Fake delay (looks like real verification)
+      setTimeout(() => {
+        loader.style.display = 'none';
+        submitBtn.disabled = false;
+
+        if (allowedEmails.includes(email)) {
+          // Success → go to playstore page
+          window.location.href = "playstore.html";
+        } else {
+          // Not found → show rejection message
+          showMessage(`
+            <strong>App is under review</strong><br>
+            You cannot install the app at this time.<br><br>
+            For more information contact:<br>
+            <strong>📞 +91 9419575333</strong><br>
+            <strong>📞 +91 9483069504</strong><br>
+            <strong>📞 +91 9449622733</strong><br>
+            <strong>📧 gpaccadamy@gmail.com</strong><br>
+            <strong>📍 Solapur By Pass, Near Roopa Devi PU College, Vijayapura, Karnataka</strong>
+          `, "error");
+        }
+      }, 1800);  // 1.8 seconds delay
+    });
+
+    function showMessage(text, type = "error") {
+      messageDiv.innerHTML = text;
+      messageDiv.className = `message ${type}`;
+      messageDiv.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
