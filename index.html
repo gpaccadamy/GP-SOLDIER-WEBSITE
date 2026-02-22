@@ -2,223 +2,240 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GP Soldier Academy – Best Defence Coaching</title>
+  <meta name="description" content="GP Soldier Academy – NDA, CDS, AFCAT, SSB coaching. 5000+ successful students, 95% selection rate. Join the elite." />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f141e;
+      --bg-card: #161c28;
+      --fg: #f5f0e8;
+      --gold: #d4a020;
+      --gold-light: #e8c558;
+      --gold-dark: #a67c18;
+      --muted: #6b7280;
+      --border: #252d3d;
+      --olive: #2d5a3e;
     }
+
     body {
-      background: #0f172a;
-      color: #f1f5f9;
-      padding-top: 80px;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    .fixed-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: #0f172a;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      border-bottom: 1px solid #334155;
+
+    h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+    .text-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #f1f5f9;
+
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--bg); font-family: 'Oswald', sans-serif;
+      padding: 1rem 2rem; border-radius: 0.5rem;
+      font-size: 1.1rem; border: none; cursor: pointer;
+      transition: transform 0.2s;
     }
-    .logo-img {
-      width: 56px;
-      height: 56px;
-      object-fit: contain;
-      border-radius: 50%;
-      border: 3px solid #f59e0b;
-      background: #1e293b;
-      padding: 4px;
+    .btn-gold:hover { transform: scale(1.05); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 2px solid var(--gold); color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      padding: 1rem 2rem; border-radius: 0.5rem;
+      font-size: 1.1rem; background: transparent;
+      transition: background 0.2s;
     }
+    .btn-outline:hover { background: rgba(212, 160, 32, 0.1); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(107,114,128,0.3);
+      padding: 1rem 2rem; border-radius: 0.5rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(15,20,30,0.9);
+      padding: 1rem;
+      z-index: 100;
+    }
+
+    .navbar .logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       background: url("https://images.unsplash.com/photo-1678558563173-e4c279c4ea82") center/cover no-repeat;
-      position: relative;
-      padding: 30px 20px;
       display: flex;
       align-items: center;
+      text-align: center;
+      padding-top: 100px;
+      position: relative;
     }
+
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9));
+      background: linear-gradient(to bottom, rgba(15,20,30,0.5), rgba(15,20,30,0.9));
     }
-    .hero-text {
+
+    .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 560px;
+      width: 100%;
     }
-    .tag {
-      background: rgba(249, 115, 22, 0.2);
-      color: #fed7aa;
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      display: inline-block;
-      margin-bottom: 16px;
-    }
+
     .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 900;
-      margin: 16px 0;
-      line-height: 1.1;
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin-bottom: 1rem;
     }
-    .highlight {
-      background: linear-gradient(to right, #fbbf24, #f59e0b);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    .subtitle { color: var(--muted); margin-bottom: 2rem; }
+
+    .hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    .stats { padding: 5rem 0; background: var(--bg-card); text-align: center; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 2rem; }
+    .value { font-size: 2.5rem; font-family: 'Oswald', sans-serif; }
+    .label { color: var(--muted); }
+
+    .mentors { padding: 5rem 0; text-align: center; }
+    .mentors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 2rem; }
+
+    .mentor-card {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
     }
-    .sub {
-      font-size: 1.15rem;
-      margin: 24px 0;
-      color: #cbd5e1;
+
+    .mentor-card img { width: 100%; height: 350px; object-fit: cover; }
+
+    .mentor-card .info { padding: 1.5rem; }
+
+    .contact { padding: 5rem 0; background: var(--bg-card); text-align: center; }
+
+    .phone-grid { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+    .phone-card {
+      padding: 1rem 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
     }
-    .hero-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .btn {
-      padding: 16px;
-      font-size: 1.15rem;
-      font-weight: 700;
-      border-radius: 14px;
+
+    .footer {
       text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: block;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
     }
-    .btn-gold {
-      background: linear-gradient(to right, #f59e0b, #fbbf24);
-      color: #0f172a;
-      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
-    }
-    .btn-gold:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(245, 158, 11, 0.55);
-    }
-    .btn-outline {
-      background: transparent;
-      color: #fbbf24;
-      border: 2.5px solid #f59e0b;
-    }
-    .btn-outline:hover {
-      background: rgba(245, 158, 11, 0.15);
-      transform: translateY(-3px);
-    }
-    /* ... rest of your styles remain unchanged ... */
+
   </style>
 </head>
+
 <body>
 
-  <header class="fixed-header">
-    <div class="logo">
-      <img src="gplogo-192.png" alt="GP Soldier Academy" class="logo-img" />
-      <span>GP Soldier Academy</span>
-    </div>
-  </header>
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">GP Soldier Academy</div>
+  </div>
+</nav>
 
-  <section class="hero">
-    <div class="hero-text">
-      <p class="tag">India's Most Trusted Defence Academy</p>
-      <h1>Become an <span class="highlight">Officer</span><br>Join the <span class="highlight">Elite</span></h1>
-      <p class="sub">
-        NDA │ CDS │ AFCAT │ SSB │ Army, Navy, Air Force<br>
-        <strong>gpaccadamy • gptigers • gpsoildiers</strong><br>
-        5000+ Successful Students • 95%+ Selection Rate
-      </p>
-      <div class="hero-buttons">
-        <button class="btn btn-gold" onclick="openContactModal()">Contact Us Now</button>
-        
-        <!-- Changed: now opens checking.html instead of direct download -->
-        <a href="checking.html" class="btn btn-outline">
-          Download GP Soldier App (APK)
-        </a>
-        
-        <a href="video.html" class="btn btn-outline">Academy Videos</a>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <div class="hero-content container">
+    <h1><span>GP SOLDIER</span><br><span class="text-gold">ACADEMY</span></h1>
+    <p class="subtitle">
+      NDA │ CDS │ AFCAT │ SSB │ Army, Navy, Air Force<br>
+      5000+ Successful Students • 95% Selection Rate
+    </p>
 
-  <!-- rest of your sections (stats, results, footer, modal) remain the same -->
-
-  <section class="stats">
-    <div><h2>5000+</h2><p>Successful Students</p></div>
-    <div><h2>95%</h2><p>Selection Rate</p></div>
-    <div><h2>10+</h2><p>Years of Excellence</p></div>
-    <div><h2>100%</h2><p>Free Physical Training</p></div>
-  </section>
-
-  <section class="section">
-    <h2>Our Proud Achievers</h2>
-    <div class="results-container">
-      <div class="result-card">
-        <img src="gurrsirf.png" alt="Shri Guru Desai" />
-        <h3>SHRI GURU DESAI</h3>
-        <p>Retired Ex-Army Officer • Chief Mentor</p>
-      </div>
-      <div class="result-card">
-        <img src="PINTUSIR1.jpg" alt="Shri Pintu Rathod" />
-        <h3>SHRI PINTU RATHOD</h3>
-        <p>Retired Ex-Army • Physical & SSB Expert</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>📞 +91 9419575333 | +91 9483069504 | +91 9449622733</p>
-    <p>📧 gpaccadamy@gmail.com</p>
-    <p>📍 Solapur By Pass, Near Roopa Devi PU College, Vijayapura, Karnataka</p>
-    <p class="copy">© 2026 GP Soldier Academy – All Rights Reserved</p>
-  </footer>
-
-  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <h2>Get in Touch</h2>
-      <button class="contact-btn call-btn" onclick="window.location.href='tel:+919419575333'">
-        Call Now
-      </button>
-      <button class="contact-btn whatsapp-btn" onclick="window.open('https://wa.me/919419575333?text=Namaste%21%20I%20want%20to%20join%20GP%20Soldier%20Academy%20%F0%9F%87%AE%F0%9F%87%B3')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-        Chat on WhatsApp
-      </button>
-      <button class="contact-btn close-btn" onclick="closeContactModal()">Close</button>
+    <div class="hero-buttons">
+      <a href="tel:+919419575333" class="btn-gold">Contact Us Now</a>
+      <a href="checking.html" class="btn-outline">Download GP Soldier App (APK)</a>
+      <a href="video.html" class="btn-ghost">Academy Videos</a>
     </div>
   </div>
+</section>
 
-  <script>
-    function openContactModal() {
-      document.getElementById('contactModal').style.display = 'flex';
-    }
-    function closeContactModal() {
-      document.getElementById('contactModal').style.display = 'none';
-    }
-    window.onclick = function(e) {
-      const modal = document.getElementById('contactModal');
-      if (e.target === modal) modal.style.display = 'none';
-    }
-  </script>
+<section class="stats">
+  <div class="container stats-grid">
+    <div><div class="value text-gold">5000+</div><div class="label">Successful Students</div></div>
+    <div><div class="value text-gold">95%</div><div class="label">Selection Rate</div></div>
+    <div><div class="value text-gold">10+</div><div class="label">Years of Excellence</div></div>
+    <div><div class="value text-gold">100%</div><div class="label">Free Physical Training</div></div>
+  </div>
+</section>
+
+<section class="mentors">
+  <div class="container">
+    <h2>Our Proud <span class="text-gold">Achievers</span></h2>
+
+    <div class="mentors-grid">
+      <div class="mentor-card">
+        <img src="gurrsirf.png" alt="Shri Guru Desai">
+        <div class="info">
+          <h3 class="text-gold">SHRI GURU DESAI</h3>
+          <p>Retired Ex-Army Officer • Chief Mentor</p>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <img src="PINTUSIR1.jpg" alt="Shri Pintu Rathod">
+        <div class="info">
+          <h3 class="text-gold">SHRI PINTU RATHOD</h3>
+          <p>Retired Ex-Army • Physical & SSB Expert</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <h2>Get in <span class="text-gold">Touch</span></h2>
+
+    <div class="phone-grid">
+      <a href="tel:+919419575333" class="phone-card">+91 9419575333</a>
+      <a href="tel:+919483069504" class="phone-card">+91 9483069504</a>
+      <a href="tel:+919449622733" class="phone-card">+91 9449622733</a>
+    </div>
+
+    <p><a href="mailto:gpaccadamy@gmail.com">gpaccadamy@gmail.com</a></p>
+    <p style="margin-top:10px;">
+      Solapur By Pass, Near Roopa Devi PU College, Vijayapura, Karnataka
+    </p>
+
+    <p style="margin-top:20px;">
+      <a href="https://wa.me/919419575333?text=Namaste%21%20I%20want%20to%20join%20GP%20Soldier%20Academy%20%F0%9F%87%AE%F0%9F%87%B3" target="_blank">
+        Chat on WhatsApp
+      </a>
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 GP Soldier Academy – All Rights Reserved
+</footer>
 
 </body>
 </html>
