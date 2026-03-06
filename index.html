@@ -3,765 +3,1104 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>GP Soldier Academy – Best Defence Coaching</title>
+  <title>GP Soldier Academy – Premier Defence Coaching</title>
   <meta name="description" content="GP Soldier Academy – NDA, CDS, AFCAT, SSB coaching. 5000+ successful students, 95% selection rate."/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet"/>
-  <link rel="icon" href="data:,">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      /* NEW PALETTE: Silent Light Blue & Cream */
-      --bg-primary: #F5F5F0;    /* Soft Cream */
-      --bg-secondary: #E8E8E0;  /* Darker Cream for sections */
-      --bg-card: #FFFFFF;       /* Pure White for cards */
-      
-      --text-primary: #1A2E3B;  /* Deep Navy/Blue-Grey */
-      --text-secondary: #5D7A8C; /* Muted Blue */
-      --text-muted: #8A9AA8;     /* Light Blue Grey */
-      
-      --accent-gold: #B8860B;    /* Dark Goldenrod (Military touch) */
-      --accent-blue: #2C4A5E;    /* Deep Slate Blue */
-      --border-light: #D1D5DB;   /* Light Grey Border */
-      --border-accent: #B8860B;  /* Gold Border */
+      /* Silent Light Blue & Cream Palette */
+      --cream: #FAF9F6;
+      --cream-warm: #F5F1E8;
+      --blue-pale: #E8F4F8;
+      --blue-soft: #B8D4E3;
+      --blue-muted: #7BA7BC;
+      --blue-deep: #2C5F7C;
+      --blue-navy: #1A3A4A;
+      --gold-soft: #C9A227;
+      --gold-pale: #E8D5A3;
+      --charcoal: #2D3436;
+      --stone: #636E72;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
+    
     body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Barlow Condensed', sans-serif;
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.6;
       overflow-x: hidden;
-      padding-bottom: 0; /* Removed bottom nav padding */
     }
 
-    a { text-decoration: none; color: inherit; }
-
-    /* ═══════════════════════════════════════
-       NAV
-    ═══════════════════════════════════════ */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 500;
-      padding: 14px 20px;
-      display: flex; align-items: center; gap: 12px;
-      background: rgba(245, 245, 240, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-light);
-      transition: box-shadow 0.3s;
+    /* Floating Navigation */
+    .nav-float {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(250, 249, 246, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--blue-soft);
+      border-radius: 50px;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 4px 30px rgba(44, 95, 124, 0.08);
+      transition: all 0.4s ease;
     }
-    .nav.scrolled { box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 
-    .nav-logo-ring {
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 2px solid var(--accent-gold); overflow: hidden; flex-shrink: 0;
-      box-shadow: 0 0 8px rgba(184, 134, 11, 0.2);
+    .nav-float.scrolled {
+      top: 12px;
+      padding: 10px 24px;
+      background: rgba(250, 249, 246, 0.95);
+      box-shadow: 0 8px 40px rgba(44, 95, 124, 0.12);
     }
-    .nav-logo-ring img { width:100%; height:100%; object-fit:cover; }
 
-    .nav-title {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1rem; font-weight: 700;
-      letter-spacing: 2px; color: var(--text-primary);
-      flex: 1;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .nav-back {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      color: var(--text-primary); padding: 6px 14px;
-      border-radius: 6px; font-size: 0.75rem;
-      font-weight: 700; letter-spacing: 1px;
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--blue-muted));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .nav-logo-text {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--blue-navy);
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--stone);
       text-transform: uppercase;
-      font-family: 'Rajdhani', sans-serif;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+      cursor: pointer;
     }
 
-    /* ═══════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════ */
+    .nav-link:hover { color: var(--blue-deep); }
+
+    /* Hero Section */
     .hero {
       min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
+      background: linear-gradient(180deg, var(--blue-pale) 0%, var(--cream) 100%);
       overflow: hidden;
-      background: linear-gradient(135deg, #E6EBF0 0%, #F5F5F0 100%); /* Light Blue to Cream */
     }
 
-    /* Subtle geometric pattern overlay */
-    .hero-bg {
-      position: absolute; inset: 0;
+    /* Animated Background Elements */
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.4;
       background-image: 
-        linear-gradient(45deg, transparent 48%, rgba(44, 74, 94, 0.03) 50%, transparent 52%),
-        linear-gradient(-45deg, transparent 48%, rgba(44, 74, 94, 0.03) 50%, transparent 52%);
-      background-size: 60px 60px;
+        radial-gradient(circle at 20% 80%, var(--blue-soft) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--gold-pale) 0%, transparent 40%),
+        radial-gradient(circle at 40% 40%, var(--blue-pale) 0%, transparent 30%);
+      animation: breathe 8s ease-in-out infinite;
     }
 
-    /* Soft radial glow */
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at center, transparent 0%, rgba(245, 245, 240, 0.8) 100%);
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.05); opacity: 0.6; }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(var(--blue-soft) 1px, transparent 1px),
+        linear-gradient(90deg, var(--blue-soft) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.15;
     }
 
     .hero-content {
-      position: relative; z-index: 2;
-      padding: 120px 20px 80px;
-      max-width: 600px; margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 24px;
     }
 
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(44, 74, 94, 0.08);
-      border: 1px solid rgba(44, 74, 94, 0.2);
-      border-radius: 3px;
-      padding: 5px 14px;
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--text-secondary); margin-bottom: 24px;
-      opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s;
-    }
-    .eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-gold); animation: blink 1.5s infinite; }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 18vw, 7rem);
-      line-height: 0.92;
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-      color: var(--text-primary);
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
-    }
-    .hero h1 .line-gold {
-      color: var(--accent-gold);
-      text-shadow: 0 2px 10px rgba(184, 134, 11, 0.2);
-    }
-
-    .hero-sub {
-      font-size: 0.95rem; color: var(--text-secondary);
-      letter-spacing: 1px; line-height: 1.8;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 162, 39, 0.1);
+      border: 1px solid var(--gold-pale);
+      padding: 8px 20px;
+      border-radius: 30px;
       margin-bottom: 32px;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s;
+      animation: fadeUp 0.8s ease;
     }
-    .hero-sub strong { color: var(--accent-blue); font-weight: 600; }
+
+    .badge-star {
+      color: var(--gold-soft);
+      font-size: 14px;
+    }
+
+    .badge-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 600;
+      color: var(--blue-navy);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+
+    .hero-title span {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--blue-deep);
+      font-size: 0.6em;
+      margin-top: 8px;
+      letter-spacing: 2px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--stone);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
 
     .hero-cta {
-      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.9s;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.6s both;
     }
 
-    .btn-primary {
-      background: var(--accent-blue);
-      color: #fff; font-family: 'Rajdhani', sans-serif;
-      font-size: 0.95rem; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 13px 26px; border-radius: 6px; border: none;
-      cursor: pointer; transition: all 0.2s;
-      box-shadow: 0 4px 15px rgba(44, 74, 94, 0.2);
+    .btn-main {
+      background: var(--blue-deep);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(44, 95, 124, 0.3);
     }
-    .btn-primary:active { transform: scale(0.97); background: #1f3a4d; }
 
-    /* Scroll indicator */
-    .scroll-hint {
-      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
-      color: var(--text-muted); font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase;
-      opacity: 0; animation: fadeUp 0.6s ease forwards 1.4s;
+    .btn-main:hover {
+      background: var(--blue-navy);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(44, 95, 124, 0.4);
     }
-    .scroll-arrow { width: 20px; height: 20px; border-right: 1.5px solid var(--text-muted); border-bottom: 1.5px solid var(--text-muted); transform: rotate(45deg); animation: bounce 1.5s ease-in-out infinite; }
-    @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0);} 50%{transform:rotate(45deg) translateY(5px);} }
 
-    /* ═══════════════════════════════════════
-       STATS RIBBON
-    ═══════════════════════════════════════ */
-    .stats-ribbon {
-      background: var(--bg-card);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-      padding: 28px 20px;
+    /* Floating Stats Bar */
+    .stats-float {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 48px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 24px 48px;
+      border-radius: 20px;
+      border: 1px solid var(--blue-soft);
+      box-shadow: 0 10px 40px rgba(44, 95, 124, 0.1);
+      animation: fadeUp 0.8s ease 0.8s both;
     }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0; max-width: 600px; margin: 0 auto;
-    }
-    .stat-item {
+
+    .stat-float-item {
       text-align: center;
-      border-right: 1px solid var(--border-light);
-      padding: 0 12px;
     }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem; letter-spacing: 1px;
-      color: var(--accent-blue);
-      line-height: 1;
-    }
-    .stat-lbl { font-size: 0.62rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; }
 
-    /* ═══════════════════════════════════════
-       SECTION COMMONS
-    ═══════════════════════════════════════ */
-    .section { padding: 64px 20px; max-width: 600px; margin: 0 auto; }
-
-    .section-tag {
-      display: inline-flex; align-items: center; gap: 7px;
-      color: var(--text-secondary); font-size: 0.65rem;
-      font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-      margin-bottom: 12px;
+    .stat-float-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--blue-deep);
+      display: block;
     }
-    .tag-line { width: 24px; height: 1px; background: var(--accent-gold); }
+
+    .stat-float-label {
+      font-size: 11px;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 100px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 16px;
+    }
 
     .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 8vw, 3.2rem);
-      letter-spacing: 2px; line-height: 1.05;
-      margin-bottom: 14px;
-      color: var(--text-primary);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--blue-navy);
+      margin-bottom: 16px;
     }
-    .section-title .gold {
-      color: var(--accent-gold);
+
+    .section-desc {
+      color: var(--stone);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
     }
-    .section-body { font-size: 0.96rem; color: var(--text-secondary); line-height: 1.8; }
 
-    /* ═══════════════════════════════════════
-       COURSES
-    ═══════════════════════════════════════ */
-    .courses-section { background: var(--bg-secondary); padding: 64px 0; }
-    .courses-inner { max-width: 600px; margin: 0 auto; padding: 0 20px; }
+    /* About Section - Asymmetric Layout */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
 
-    .courses-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 28px; }
+    .about-visual {
+      position: relative;
+    }
+
+    .about-frame {
+      background: var(--cream-warm);
+      border-radius: 20px;
+      padding: 40px;
+      position: relative;
+      border: 1px solid var(--blue-soft);
+    }
+
+    .about-frame::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: 20px;
+      bottom: 20px;
+      border: 2px solid var(--gold-pale);
+      border-radius: 20px;
+      z-index: -1;
+    }
+
+    .about-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--blue-deep);
+      line-height: 1.6;
+    }
+
+    .about-author {
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--stone);
+    }
+
+    .about-author strong {
+      display: block;
+      color: var(--blue-navy);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .about-content h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: var(--blue-navy);
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: var(--stone);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .highlight-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--charcoal);
+    }
+
+    .highlight-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gold-soft);
+      border-radius: 50%;
+    }
+
+    /* Courses - Horizontal Scroll Cards */
+    .courses-section {
+      background: var(--blue-pale);
+      padding: 100px 0;
+    }
+
+    .courses-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .courses-scroll {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scrollbar-width: none;
+    }
+
+    .courses-scroll::-webkit-scrollbar { display: none; }
 
     .course-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 18px 16px;
-      position: relative; overflow: hidden;
-      transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      flex: 0 0 280px;
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid var(--blue-soft);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .course-card:active { transform: scale(0.97); border-color: var(--accent-gold); }
+
     .course-card::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--accent-gold), transparent);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold-soft), var(--blue-muted));
     }
 
-    .course-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(44, 95, 124, 0.15);
+    }
+
+    .course-icon-wrap {
+      width: 60px;
+      height: 60px;
+      background: var(--cream-warm);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
     .course-name {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1rem; font-weight: 700;
-      color: var(--text-primary); letter-spacing: 1px; margin-bottom: 4px;
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
     }
-    .course-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
 
-    /* ═══════════════════════════════════════
-       MENTORS
-    ═══════════════════════════════════════ */
-    .mentors-section { padding: 64px 0; background: var(--bg-primary); }
-    .mentors-inner { max-width: 600px; margin: 0 auto; padding: 0 20px; }
+    .course-desc {
+      font-size: 14px;
+      color: var(--stone);
+      line-height: 1.7;
+    }
 
-    .mentors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    /* Mentors - Staggered Grid */
+    .mentors-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
     .mentor-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 14px; overflow: hidden;
       position: relative;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 24px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 10px 40px rgba(44, 95, 124, 0.08);
     }
-    .mentor-img {
-      width: 100%; aspect-ratio: 3/4;
-      object-fit: cover; display: block;
-      filter: grayscale(20%) contrast(1.05);
+
+    .mentor-card:nth-child(2) {
+      margin-top: 60px;
     }
-    .mentor-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(26, 46, 59, 0.95) 50%);
-      padding: 40px 14px 14px;
+
+    .mentor-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(1.1);
+      transition: all 0.5s ease;
     }
+
+    .mentor-card:hover .mentor-image {
+      filter: grayscale(0%) contrast(1);
+      transform: scale(1.05);
+    }
+
+    .mentor-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(26, 58, 74, 0.95));
+      padding: 40px 24px 24px;
+      color: white;
+    }
+
     .mentor-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem; letter-spacing: 1.5px;
-      color: #fff; margin-bottom: 3px;
-    }
-    .mentor-role { font-size: 0.68rem; color: rgba(255,255,255,0.8); line-height: 1.4; }
-
-    /* ═══════════════════════════════════════
-       WHY US — Feature list
-    ═══════════════════════════════════════ */
-    .why-section { background: var(--bg-secondary); padding: 64px 0; }
-    .why-inner { max-width: 600px; margin: 0 auto; padding: 0 20px; }
-
-    .why-list { margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
-    .why-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex; align-items: flex-start; gap: 14px;
-      transition: all 0.2s;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
-    .why-item:active { border-color: var(--accent-gold); }
-    .why-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem; line-height: 1;
-      color: var(--accent-gold); opacity: 0.3; flex-shrink: 0;
-      width: 36px; text-align: center;
-    }
-    .why-body { flex: 1; }
-    .why-title {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 0.98rem; font-weight: 700;
-      color: var(--text-primary); margin-bottom: 3px;
-    }
-    .why-desc { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
-
-    /* ═══════════════════════════════════════
-       CONTACT CTA
-    ═══════════════════════════════════════ */
-    .cta-section {
-      padding: 64px 20px;
-      max-width: 600px; margin: 0 auto;
-      text-align: center;
-    }
-
-    .cta-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 20px;
-      padding: 36px 24px;
-      position: relative; overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-    .cta-box::before {
-      content: '';
-      position: absolute; top: -1px; left: 10%; right: 10%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-    }
-
-    .cta-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem; letter-spacing: 2px;
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
       margin-bottom: 8px;
-      color: var(--text-primary);
     }
-    .cta-sub { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.7; }
 
-    .phone-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-    .phone-row {
-      display: flex; align-items: center; gap: 12px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-light);
-      border-radius: 10px; padding: 12px 16px;
-      cursor: pointer; transition: all 0.2s;
-      text-decoration: none;
+    .mentor-role {
+      font-size: 13px;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
     }
-    .phone-row:active { border-color: var(--accent-gold); background: #fff; }
-    .phone-icon { font-size: 1.1rem; flex-shrink: 0; }
-    .phone-num {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1.05rem; font-weight: 700;
-      color: var(--accent-blue); letter-spacing: 0.5px; flex: 1; text-align: left;
+
+    /* Why Us - Numbered Features */
+    .why-section {
+      background: var(--cream-warm);
     }
-    .phone-arr { color: var(--text-muted); font-size: 0.8rem; }
 
-    .cta-divider { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
-    .cta-divider-line { flex:1; height:1px; background:var(--border-light); }
-    .cta-divider span { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
-
-    .wa-btn {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      background: #128c4a; color: white;
-      padding: 14px; border-radius: 10px;
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      text-decoration: none; transition: background 0.2s;
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
     }
-    .wa-btn:active { background: #0f7a3e; }
 
-    .location-strip {
-      margin-top: 16px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-light);
-      border-radius: 10px; padding: 12px 16px;
-      display: flex; align-items: center; gap: 12px;
-      text-align: left;
+    .feature-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 32px;
+      border: 1px solid var(--blue-soft);
+      position: relative;
+      transition: all 0.3s ease;
     }
-    .loc-icon { font-size: 1.2rem; flex-shrink: 0; }
-    .loc-text { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
-    .loc-text strong { color: var(--text-primary); font-weight: 600; }
 
-    /* ═══════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════ */
+    .feature-card:hover {
+      border-color: var(--blue-muted);
+      transform: translateY(-4px);
+    }
+
+    .feature-number {
+      position: absolute;
+      top: -20px;
+      left: 32px;
+      font-family: 'Cinzel', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--gold-pale);
+      opacity: 0.6;
+      line-height: 1;
+    }
+
+    .feature-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--blue-navy);
+      margin-bottom: 12px;
+      margin-top: 20px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+
+    /* Contact - Elegant Form */
+    .contact-section {
+      background: linear-gradient(180deg, var(--blue-navy) 0%, var(--blue-deep) 100%);
+      color: white;
+      padding: 100px 24px;
+    }
+
+    .contact-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .contact-info h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+    }
+
+    .contact-info > p {
+      opacity: 0.8;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .method-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .method-details h4 {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .method-details p {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: white;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--gold-soft);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--gold-soft);
+      color: var(--blue-navy);
+      border: none;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold-pale);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
     .footer {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-light);
-      padding: 40px 20px; /* Increased padding since bottom nav is gone */
+      background: var(--blue-navy);
+      color: rgba(255,255,255,0.6);
+      padding: 40px 24px;
       text-align: center;
+      font-size: 14px;
     }
-    .footer-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem; letter-spacing: 3px;
-      color: var(--text-primary); margin-bottom: 6px;
-    }
-    .footer-sub { font-size: 0.7rem; color: var(--text-secondary); letter-spacing: 1px; margin-bottom: 16px; }
-    .footer-divider { width: 40px; height: 1px; background: var(--accent-gold); margin: 0 auto 12px; }
-    .footer-copy { font-size: 0.68rem; color: var(--text-muted); }
 
-    /* ═══════════════════════════════════════
-       SCROLL ANIMATIONS
-    ═══════════════════════════════════════ */
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    .footer-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 8px;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* ═══════════════════════════════════════
-       ANIMATIONS
-    ═══════════════════════════════════════ */
+    /* Animations */
     @keyframes fadeUp {
-      from { opacity:0; transform:translateY(20px); }
-      to   { opacity:1; transform:translateY(0); }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ═══════════════════════════════════════
-       MOBILE TWEAKS
-    ═══════════════════════════════════════ */
-    @media (max-width: 360px) {
-      .stats-grid { grid-template-columns: repeat(2,1fr); gap: 10px 0; }
-      .stat-item:nth-child(2) { border-right: none; }
-      .stat-item:nth-child(3) { border-right: 1px solid var(--border-light); border-top: 1px solid var(--border-light); }
-      .stat-item:nth-child(4) { border-right: none; border-top: 1px solid var(--border-light); }
-      .courses-grid { grid-template-columns: 1fr; }
-      .mentors-grid { grid-template-columns: 1fr; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav-float {
+        padding: 10px 20px;
+        gap: 16px;
+      }
+      
+      .nav-link { display: none; }
+      
+      .stats-float {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px 32px;
+        bottom: 40px;
+      }
+      
+      .about-split,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .mentors-grid {
+        gap: 24px;
+      }
+      
+      .mentor-card:nth-child(2) {
+        margin-top: 0;
+      }
     }
   </style>
+<base target="_blank">
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     NAV
-══════════════════════════════════════ -->
-<nav class="nav" id="nav">
-  <div class="nav-logo-ring">
-    <img src="gplogo.jpg" alt="GP Soldiers">
-  </div>
-  <div class="nav-title">GP SOLDIERS ACADEMY</div>
-  <a href="index.html" class="nav-back">← Home</a>
-</nav>
-
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <div class="eyebrow-dot"></div>
-      India's Premier Defence Academy
+  <!-- Floating Navigation -->
+  <nav class="nav-float" id="nav">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">GP</div>
+      <div class="nav-logo-text">SOLDIERS</div>
     </div>
+    <a class="nav-link" onclick="scrollToSection('about')">About</a>
+    <a class="nav-link" onclick="scrollToSection('courses')">Courses</a>
+    <a class="nav-link" onclick="scrollToSection('mentors')">Mentors</a>
+    <a class="nav-link" onclick="scrollToSection('contact')">Contact</a>
+  </nav>
 
-    <h1>
-      GP SOLDIER<br>
-      <span class="line-gold">ACADEMY</span>
-    </h1>
-
-    <p class="hero-sub">
-      <strong>NDA &nbsp;│&nbsp; CDS &nbsp;│&nbsp; AFCAT &nbsp;│&nbsp; SSB</strong><br>
-      Army • Navy • Air Force • Coast Guard<br>
-      Shaping Tomorrow's Warriors Since 2014
-    </p>
-
-    <div class="hero-cta">
-      <a href="tel:+919419575333" class="btn-primary">📞 Call Now</a>
-      <!-- "Take Free Test" button removed as requested -->
-    </div>
-  </div>
-
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-arrow"></div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     STATS
-══════════════════════════════════════ -->
-<div class="stats-ribbon">
-  <div class="stats-grid">
-    <div class="stat-item reveal">
-      <div class="stat-num" data-target="5000">0</div>
-      <div class="stat-lbl">Students</div>
-    </div>
-    <div class="stat-item reveal reveal-delay-1">
-      <div class="stat-num">95%</div>
-      <div class="stat-lbl">Success Rate</div>
-    </div>
-    <div class="stat-item reveal reveal-delay-2">
-      <div class="stat-num">10+</div>
-      <div class="stat-lbl">Years</div>
-    </div>
-    <div class="stat-item reveal reveal-delay-3">
-      <div class="stat-num">100%</div>
-      <div class="stat-lbl">Free PT</div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════
-     ABOUT
-══════════════════════════════════════ -->
-<div class="section">
-  <div class="section-tag reveal"><div class="tag-line"></div>About Us</div>
-  <h2 class="section-title reveal reveal-delay-1">
-    FORGING <span class="gold">WARRIORS</span><br>SINCE 2014
-  </h2>
-  <p class="section-body reveal reveal-delay-2">
-    GP Soldiers Academy is Karnataka's most trusted defence coaching institute. Founded by retired Army officers, we combine rigorous academic preparation with physical and mental conditioning to produce exceptional candidates for the Indian Armed Forces.
-  </p>
-  <p class="section-body reveal reveal-delay-3" style="margin-top:12px;">
-    Our mission is simple — transform determined youth into disciplined, capable soldiers ready to serve the nation with honour.
-  </p>
-</div>
-
-<!-- ══════════════════════════════════════
-     COURSES
-══════════════════════════════════════ -->
-<div class="courses-section">
-  <div class="courses-inner">
-    <div class="section-tag reveal"><div class="tag-line"></div>Programmes</div>
-    <h2 class="section-title reveal reveal-delay-1">
-      WHAT WE <span class="gold">TEACH</span>
-    </h2>
-
-    <div class="courses-grid">
-      <div class="course-card reveal reveal-delay-1">
-        <div class="course-icon">⭐</div>
-        <div class="course-name">NDA</div>
-        <div class="course-desc">National Defence Academy — Maths, English, GK & SSB preparation</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-grid"></div>
+    
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-star">★</span>
+        <span class="badge-text">Est. 2014 • Vijayapura</span>
       </div>
-      <div class="course-card reveal reveal-delay-2">
-        <div class="course-icon">🎖️</div>
-        <div class="course-name">CDS</div>
-        <div class="course-desc">Combined Defence Services — full written + interview coaching</div>
-      </div>
-      <div class="course-card reveal reveal-delay-1">
-        <div class="course-icon">✈️</div>
-        <div class="course-name">AFCAT</div>
-        <div class="course-desc">Air Force Common Admission Test — technical & verbal</div>
-      </div>
-      <div class="course-card reveal reveal-delay-2">
-        <div class="course-icon">🧠</div>
-        <div class="course-name">SSB</div>
-        <div class="course-desc">Services Selection Board — psychology, GTO & interview</div>
-      </div>
-      <div class="course-card reveal reveal-delay-1">
-        <div class="course-icon">💪</div>
-        <div class="course-name">Physical</div>
-        <div class="course-desc">Free PT coaching — running, beam, ditch & 1.6km race</div>
-      </div>
-      <div class="course-card reveal reveal-delay-2">
-        <div class="course-icon">📋</div>
-        <div class="course-name">Written</div>
-        <div class="course-desc">Army GD, Clerk, Technical — CEE written exam prep</div>
+      
+      <h1 class="hero-title">
+        GP Soldier Academy
+        <span>Shaping India's Future Defenders</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        Premier coaching for NDA, CDS, AFCAT, and SSB. 
+        Where discipline meets excellence, and dreams become commissions.
+      </p>
+      
+      <div class="hero-cta">
+        <button class="btn-main" onclick="scrollToSection('contact')">Begin Your Journey</button>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ══════════════════════════════════════
-     MENTORS
-══════════════════════════════════════ -->
-<div class="mentors-section">
-  <div class="mentors-inner">
-    <div class="section-tag reveal"><div class="tag-line"></div>Our Leaders</div>
-    <h2 class="section-title reveal reveal-delay-1">
-      PROUD <span class="gold">MENTORS</span>
-    </h2>
+    <div class="stats-float">
+      <div class="stat-float-item">
+        <span class="stat-float-num" data-count="5000">0</span>
+        <span class="stat-float-label">Students Trained</span>
+      </div>
+      <div class="stat-float-item">
+        <span class="stat-float-num">95%</span>
+        <span class="stat-float-label">Selection Rate</span>
+      </div>
+      <div class="stat-float-item">
+        <span class="stat-float-num">10+</span>
+        <span class="stat-float-label">Years Legacy</span>
+      </div>
+    </div>
+  </section>
 
-    <div class="mentors-grid">
-      <div class="mentor-card reveal reveal-delay-1">
-        <img class="mentor-img" src="gurrsirf.png" alt="Shri Guru Desai"
-          onerror="this.style.background='#E8E8E0';this.style.minHeight='220px';">
-        <div class="mentor-overlay">
-          <div class="mentor-name">SHRI GURU DESAI</div>
-          <div class="mentor-role">Retired Ex-Army Officer<br>Chief Mentor & Founder</div>
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="about-split">
+      <div class="about-visual reveal">
+        <div class="about-frame">
+          <p class="about-quote">"The soldier above all others prays for peace, for it is the soldier who must suffer and bear the deepest wounds and scars of war."</p>
+          <div class="about-author">
+            <strong>— Our Philosophy</strong>
+            Service Before Self
+          </div>
         </div>
       </div>
-      <div class="mentor-card reveal reveal-delay-2">
-        <img class="mentor-img" src="PINTUSIR1.jpg" alt="Shri Pintu Rathod"
-          onerror="this.style.background='#E8E8E0';this.style.minHeight='220px';">
-        <div class="mentor-overlay">
-          <div class="mentor-name">SHRI PINTU RATHOD</div>
-          <div class="mentor-role">Retired Ex-Army<br>Physical & SSB Expert</div>
+      
+      <div class="about-content reveal">
+        <h3>Forging Warriors Since 2014</h3>
+        <p>GP Soldiers Academy stands as Karnataka's most trusted institution for defence aspirants. Founded by decorated retired Army officers, we bridge the gap between civilian potential and military excellence.</p>
+        <p>Our methodology combines rigorous academic preparation with holistic personality development. We don't just teach syllabus; we cultivate the officer-like qualities that selection boards seek.</p>
+        
+        <div class="highlight-list">
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <span>Ex-Army Faculty with Real SSB Experience</span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <span>Complimentary Physical Training Daily</span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <span>Bilingual Instruction (Kannada & English)</span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <span>Modern Digital Learning Platform</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- ══════════════════════════════════════
-     WHY US
-══════════════════════════════════════ -->
-<div class="why-section">
-  <div class="why-inner">
-    <div class="section-tag reveal"><div class="tag-line"></div>Why Choose Us</div>
-    <h2 class="section-title reveal reveal-delay-1">
-      THE GP <span class="gold">ADVANTAGE</span>
-    </h2>
-    <div class="why-list">
-      <div class="why-item reveal reveal-delay-1">
-        <div class="why-num">01</div>
-        <div class="why-body">
-          <div class="why-title">Expert Ex-Army Faculty</div>
-          <div class="why-desc">Learn from real Army veterans who've been through the same selection process you're preparing for.</div>
-        </div>
+  <!-- Courses Section -->
+  <section class="courses-section" id="courses">
+    <div class="courses-container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Programmes</div>
+        <h2 class="section-title">Pathways to Service</h2>
+        <p class="section-desc">Comprehensive preparation for every stage of your defence career journey</p>
       </div>
-      <div class="why-item reveal reveal-delay-2">
-        <div class="why-num">02</div>
-        <div class="why-body">
-          <div class="why-title">100% Free Physical Training</div>
-          <div class="why-desc">Daily PT sessions at no extra cost — running drills, physical tests, obstacle training included.</div>
+      
+      <div class="courses-scroll reveal">
+        <div class="course-card">
+          <div class="course-icon-wrap">⚔️</div>
+          <h3 class="course-name">NDA</h3>
+          <p class="course-desc">National Defence Academy preparation with intensive Mathematics, English, and General Ability coaching.</p>
         </div>
-      </div>
-      <div class="why-item reveal reveal-delay-1">
-        <div class="why-num">03</div>
-        <div class="why-body">
-          <div class="why-title">Online Mock Exams</div>
-          <div class="why-desc">Practice on our digital exam platform — same format as real CEE tests with instant results.</div>
+        
+        <div class="course-card">
+          <div class="course-icon-wrap">🎖️</div>
+          <h3 class="course-name">CDS</h3>
+          <p class="course-desc">Combined Defence Services examination training for graduates seeking Army, Navy, or Air Force commissions.</p>
         </div>
-      </div>
-      <div class="why-item reveal reveal-delay-2">
-        <div class="why-num">04</div>
-        <div class="why-body">
-          <div class="why-title">95% Selection Rate</div>
-          <div class="why-desc">5000+ students selected across Army, Navy and Air Force in 10+ years of operation.</div>
+        
+        <div class="course-card">
+          <div class="course-icon-wrap">✈️</div>
+          <h3 class="course-name">AFCAT</h3>
+          <p class="course-desc">Air Force Common Admission Test coaching covering technical, verbal, and numerical abilities.</p>
         </div>
-      </div>
-      <div class="why-item reveal reveal-delay-1">
-        <div class="why-num">05</div>
-        <div class="why-body">
-          <div class="why-title">Kannada & English Medium</div>
-          <div class="why-desc">Classes conducted in both languages so no student is left behind.</div>
+        
+        <div class="course-card">
+          <div class="course-icon-wrap">🧠</div>
+          <h3 class="course-name">SSB Interview</h3>
+          <p class="course-desc">Complete Services Selection Board preparation: Psychology, GTO tasks, and Personal Interview mastery.</p>
+        </div>
+        
+        <div class="course-card">
+          <div class="course-icon-wrap">🏃</div>
+          <h3 class="course-name">Physical Training</h3>
+          <p class="course-desc">Daily PT sessions including running, obstacle training, and endurance building — completely free.</p>
+        </div>
+        
+        <div class="course-card">
+          <div class="course-icon-wrap">📝</div>
+          <h3 class="course-name">Army Written</h3>
+          <p class="course-desc">Specialized coaching for Army GD, Clerk, and Technical category Common Entrance Exams.</p>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- ══════════════════════════════════════
-     CTA / CONTACT
-══════════════════════════════════════ -->
-<div class="cta-section">
-  <div class="cta-box reveal">
-    <div class="cta-title">JOIN THE <span style="color:var(--accent-gold);">MISSION</span></div>
-    <p class="cta-sub">
-      Ready to serve the nation? Talk to our team today.<br>
-      Admissions open — limited seats available.
-    </p>
-
-    <div class="phone-list">
-      <a class="phone-row" href="tel:+919419575333">
-        <span class="phone-icon">📱</span>
-        <span class="phone-num">+91 94195 75333</span>
-        <span class="phone-arr">›</span>
-      </a>
-      <a class="phone-row" href="tel:+919483069504">
-        <span class="phone-icon">📱</span>
-        <span class="phone-num">+91 94830 69504</span>
-        <span class="phone-arr">›</span>
-      </a>
-      <a class="phone-row" href="tel:+919449622733">
-        <span class="phone-icon">📱</span>
-        <span class="phone-num">+91 94496 22733</span>
-        <span class="phone-arr">›</span>
-      </a>
+  <!-- Mentors Section -->
+  <section class="section" id="mentors">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Leadership</div>
+      <h2 class="section-title">Guided by Experience</h2>
+      <p class="section-desc">Learn from those who have worn the uniform and walked the path</p>
     </div>
-
-    <div class="cta-divider">
-      <div class="cta-divider-line"></div>
-      <span>or message us</span>
-      <div class="cta-divider-line"></div>
-    </div>
-
-    <a class="wa-btn" href="https://wa.me/919419575333?text=Namaste !%20I%20want%20to%20join%20GP%20Soldier%20Academy%20🇮🇳" target="_blank">
-      💬 &nbsp; Chat on WhatsApp
-    </a>
-
-    <div class="location-strip" style="margin-top:14px;">
-      <span class="loc-icon">📍</span>
-      <div class="loc-text">
-        <strong>GP Soldiers Academy</strong><br>
-        Solapur By-Pass, Near Roopa Devi PU College,<br>Vijayapura, Karnataka
+    
+    <div class="mentors-grid reveal">
+      <div class="mentor-card">
+        <img src="gurrsirf.png" alt="Shri Guru Desai" class="mentor-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22><rect fill=%22%23F5F1E8%22 width=%22400%22 height=%22500%22/><text fill=%22%232C5F7C%22 font-family=%22serif%22 font-size=%2224%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22>Photo</text></svg>'">
+        <div class="mentor-info">
+          <h3 class="mentor-name">Shri Guru Desai</h3>
+          <p class="mentor-role">Retired Army Officer • Chief Mentor & Founder</p>
+        </div>
+      </div>
+      
+      <div class="mentor-card">
+        <img src="PINTUSIR1.jpg" alt="Shri Pintu Rathod" class="mentor-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22><rect fill=%22%23F5F1E8%22 width=%22400%22 height=%22500%22/><text fill=%22%232C5F7C%22 font-family=%22serif%22 font-size=%2224%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22>Photo</text></svg>'">
+        <div class="mentor-info">
+          <h3 class="mentor-name">Shri Pintu Rathod</h3>
+          <p class="mentor-role">Retired Army • Physical & SSB Expert</p>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
-<div class="footer">
-  <div class="footer-logo">GP SOLDIERS ACADEMY</div>
-  <div class="footer-sub">Discipline • Courage • Victory • Jai Hind 🇮🇳</div>
-  <div class="footer-divider"></div>
-  <div class="footer-copy">© 2026 GP Soldiers Academy — All Rights Reserved</div>
-</div>
+  <!-- Why Us Section -->
+  <section class="section why-section">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Advantages</div>
+      <h2 class="section-title">The GP Difference</h2>
+    </div>
+    
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="feature-number">01</div>
+        <h3 class="feature-title">Veteran Faculty</h3>
+        <p class="feature-desc">Direct mentorship from retired officers who understand the selection process intimately.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-number">02</div>
+        <h3 class="feature-title">Holistic Training</h3>
+        <p class="feature-desc">Academic excellence combined with physical conditioning and personality development.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-number">03</div>
+        <h3 class="feature-title">Proven Results</h3>
+        <p class="feature-desc">Consistent track record of selections across all three services over a decade.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-number">04</div>
+        <h3 class="feature-title">Modern Methods</h3>
+        <p class="feature-desc">Digital mock tests and contemporary teaching techniques alongside traditional values.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-number">05</div>
+        <h3 class="feature-title">Accessible Education</h3>
+        <p class="feature-desc">Bilingual instruction ensuring every deserving candidate has opportunity.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-number">06</div>
+        <h3 class="feature-title">Free PT Program</h3>
+        <p class="feature-desc">Comprehensive physical training at no additional cost to all enrolled students.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- BOTTOM NAV REMOVED AS REQUESTED -->
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-info reveal">
+        <h2>Begin Your Commission</h2>
+        <p>Take the first step toward serving the nation. Our admissions team is ready to guide your journey from aspirant to officer.</p>
+        
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="method-icon">📞</div>
+            <div class="method-details">
+              <h4>Phone</h4>
+              <p>+91 94195 75333</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="method-icon">📱</div>
+            <div class="method-details">
+              <h4>WhatsApp</h4>
+              <p>+91 94830 69504</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="method-icon">📍</div>
+            <div class="method-details">
+              <h4>Location</h4>
+              <p>Solapur By-Pass, Near Roopa Devi PU College, Vijayapura, Karnataka</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form reveal">
+        <form onsubmit="event.preventDefault(); alert('Thank you for your interest. We will contact you shortly.');">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" required>
+          </div>
+          
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+91 98765 43210" required>
+          </div>
+          
+          <div class="form-group">
+            <label>Interested Course</label>
+            <select required>
+              <option value="">Select a programme</option>
+              <option value="nda">NDA</option>
+              <option value="cds">CDS</option>
+              <option value="afcat">AFCAT</option>
+              <option value="ssb">SSB Interview</option>
+              <option value="army">Army Written</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn-submit">Request Information</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-<script>
-  // ── Nav scroll effect ──
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-brand">GP Soldiers Academy</div>
+    <p>Discipline • Courage • Service • Jai Hind 🇮🇳</p>
+    <p style="margin-top: 8px; opacity: 0.6;">© 2026 GP Soldiers Academy. All rights reserved.</p>
+  </footer>
 
-  // ── Scroll reveal ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+  <script>
+    // Navigation scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
     });
-  }, { threshold: 0.12 });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Smooth scroll to sections
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
 
-  // ── Count-up animation ──
-  const counterEls = document.querySelectorAll('[data-target]');
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const el = e.target;
-        const target = parseInt(el.dataset.target);
-        let start = 0;
-        const step = target / 60;
-        const timer = setInterval(() => {
-          start += step;
-          if (start >= target) { el.textContent = target.toLocaleString() + '+'; clearInterval(timer); }
-          else { el.textContent = Math.floor(start).toLocaleString(); }
-        }, 20);
-        countObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-  counterEls.forEach(el => countObserver.observe(el));
-</script>
+    // Intersection Observer for reveal animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Counter animation
+    const counters = document.querySelectorAll('[data-count]');
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.dataset.count);
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+          
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              entry.target.textContent = target.toLocaleString() + '+';
+              clearInterval(timer);
+            } else {
+              entry.target.textContent = Math.floor(current).toLocaleString();
+            }
+          }, 16);
+          
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => countObserver.observe(counter));
+  </script>
 </body>
 </html>
