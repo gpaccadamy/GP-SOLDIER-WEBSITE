@@ -1,79 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GP Academy</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-  <!-- PWA -->
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#2196f3" />
+<title>GP Academy</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2196f3">
 
-    iframe {
-      width: 100%;
-      height: 100vh;
-      border: none;
-    }
+<style>
 
-    #installBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #2196f3;
-      color: white;
-      padding: 12px 16px;
-      border-radius: 8px;
-      border: none;
-      font-size: 14px;
-      display: none;
-      z-index: 999;
-    }
-  </style>
+html,
+body{
+margin:0;
+padding:0;
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:sans-serif;
+background:white;
+}
+
+iframe{
+width:100%;
+height:100vh;
+border:none;
+display:block;
+}
+
+#installBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+
+background:#2196f3;
+color:white;
+
+padding:12px 16px;
+
+border:none;
+border-radius:8px;
+
+font-size:14px;
+
+display:none;
+
+z-index:999;
+cursor:pointer;
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- App Content -->
-  <iframe src="https://academy-student-portal.onrender.com"></iframe>
+<!-- APP FRAME -->
 
-  <!-- Install Button -->
-  <button id="installBtn">Install App</button>
+<iframe
+id="appFrame"
+src="https://academy-student-portal.onrender.com">
+</iframe>
 
-  <script>
-    // Register service worker
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
 
-    let deferredPrompt;
+<!-- INSTALL BUTTON -->
 
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      document.getElementById("installBtn").style.display = "block";
-    });
+<button id="installBtn">
 
-    document.getElementById("installBtn").addEventListener("click", async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const choice = await deferredPrompt.userChoice;
-        if (choice.outcome === "accepted") {
-          document.getElementById("installBtn").style.display = "none";
-        }
-        deferredPrompt = null;
-      }
-    });
+Install App
 
-    // Hide button if already installed
-    window.addEventListener("appinstalled", () => {
-      document.getElementById("installBtn").style.display = "none";
-    });
-  </script>
+</button>
+
+
+<script>
+
+/* SERVICE WORKER */
+
+if("serviceWorker" in navigator){
+
+navigator.serviceWorker.register(
+"service-worker.js"
+);
+
+}
+
+
+/* PWA INSTALL */
+
+let deferredPrompt;
+
+window.addEventListener(
+"beforeinstallprompt",
+
+(e)=>{
+
+e.preventDefault();
+
+deferredPrompt=e;
+
+document.getElementById(
+"installBtn"
+).style.display="block";
+
+}
+
+);
+
+
+document.getElementById(
+"installBtn"
+).addEventListener(
+
+"click",
+
+async()=>{
+
+if(!deferredPrompt) return;
+
+deferredPrompt.prompt();
+
+const choice=
+await deferredPrompt.userChoice;
+
+if(choice.outcome==="accepted"){
+
+document.getElementById(
+"installBtn"
+).style.display="none";
+
+}
+
+deferredPrompt=null;
+
+}
+
+);
+
+
+window.addEventListener(
+"appinstalled",
+
+()=>{
+
+document.getElementById(
+"installBtn"
+).style.display="none";
+
+}
+
+);
+
+
+/* ANDROID BACK SUPPORT */
+
+window.addEventListener(
+
+"message",
+
+function(e){
+
+if(e.data==="goBack"){
+
+const frame=
+document.getElementById(
+"appFrame"
+);
+
+try{
+
+frame.contentWindow.history.back();
+
+}catch(err){
+
+console.log(err);
+
+}
+
+}
+
+}
+
+);
+
+</script>
 
 </body>
 </html>
